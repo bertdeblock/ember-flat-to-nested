@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs')
 const recursive = require('recursive-readdir')
 const { argv } = require('yargs')
