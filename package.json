@@ -1,0 +1,13 @@
+{
+  "name": "ember-flat-to-nested",
+  "version": "1.0.0",
+  "description": "Transforms a flat component structure to a nested component structure.",
+  "repository": "https://github.com/Bagaar/ember-flat-to-nested",
+  "author": "Bagaar",
+  "main": "index.js",
+  "bin": "index.js",
+  "dependencies": {
+    "recursive-readdir": "^2.2.2",
+    "yargs": "^16.0.3"
+  }
+}
