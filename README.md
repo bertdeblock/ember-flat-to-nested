@@ -2,14 +2,14 @@
 
 Transforms a **flat colocated** component structure to a **nested colocated** component structure.
 
-## Usage
+## 👨‍💻 Usage
 
 ```shell
 npx github:Bagaar/ember-flat-to-nested --dir app/components
 npx github:Bagaar/ember-flat-to-nested --dir addon/components
 ```
 
-### Before
+### 💩 Before
 
 ```
 your-project-name
@@ -23,7 +23,7 @@ your-project-name
 │   ...
 ```
 
-### After
+### 🥳 After
 
 ```
 your-project-name
