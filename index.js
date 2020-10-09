@@ -4,19 +4,28 @@ const fs = require('fs')
 const recursive = require('recursive-readdir')
 const { argv } = require('yargs')
 
-const COMPONENTS_DIR = argv.dir
+const componentsDir = argv.dir
 
-fs.mkdirSync(COMPONENTS_DIR, { recursive: true })
-
-recursive(COMPONENTS_DIR, function (error, components) {
-  components.forEach(componentFile => {
-    const [nestedComponentDir, nestedComponentExt] = componentFile.split('.')
-    
-    if (nestedComponentDir.endsWith('index')) {
-      return
-    }
-
-    fs.mkdirSync(nestedComponentDir, { recursive: true })
-    fs.renameSync(componentFile, `${nestedComponentDir}/index.${nestedComponentExt}`)
-  })
+recursive(componentsDir, function (error, componentFiles) {
+  componentFiles.forEach(flatToNestedComponent)
 })
+
+function flatToNestedComponent (componentFile) {
+  if (isNestedComponent(componentFile)) {
+    return
+  }
+  
+  const [
+    nestedComponentDir,
+    nestedComponentExt
+  ] = componentFile.split('.')
+  
+  const nestedComponentFile = `${nestedComponentDir}/index.${nestedComponentExt}`
+  
+  fs.mkdirSync(nestedComponentDir, { recursive: true })
+  fs.renameSync(componentFile, nestedComponentFile)
+}
+
+function isNestedComponent (componentFile) {
+  return componentFile.includes('/index.')
+}
