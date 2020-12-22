@@ -8,7 +8,7 @@
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
-    "format": "prettier index.js --write"
+    "format": "prettier **/*.js --write"
   },
   "dependencies": {
     "recursive-readdir": "^2.2.2"
