@@ -2,8 +2,8 @@
   "name": "ember-flat-to-nested",
   "version": "1.0.0",
   "description": "Transforms a flat colocated component structure to a nested colocated component structure.",
-  "repository": "https://github.com/Bagaar/ember-flat-to-nested",
-  "author": "Bagaar",
+  "repository": "https://github.com/bertdeblock/ember-flat-to-nested",
+  "author": "Bert De Block",
   "main": "index.js",
   "bin": "index.js",
   "dependencies": {
