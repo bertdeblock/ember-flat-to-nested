@@ -8,12 +8,24 @@
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
-    "format": "prettier **/*.js --write"
+    "format": "prettier **/*.js --write",
+    "test": "ava"
+  },
+  "ava": {
+    "files": [
+      "test/test.js"
+    ],
+    "ignoredByWatcher": [
+      "test/output"
+    ]
   },
   "dependencies": {
     "recursive-readdir": "^2.2.2"
   },
   "devDependencies": {
-    "prettier": "^2.2.1"
+    "@kwsites/file-exists": "^1.1.1",
+    "ava": "^3.14.0",
+    "prettier": "^2.2.1",
+    "recursive-copy": "^2.0.11"
   }
 }

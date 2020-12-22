@@ -16,11 +16,11 @@ Works inside projects and addons.
 your-project-name
 ├── app
 │   └── components
-│       ├── foo-bar
-│       │   ├── baz.hbs
-│       │   └── baz.js
-│       ├── foo-bar.hbs
-│       └── foo-bar.js
+│       ├── foo
+│       │   ├── bar.hbs
+│       │   └── bar.js
+│       ├── foo.hbs
+│       └── foo.js
 │   ...
 ```
 
@@ -30,8 +30,8 @@ your-project-name
 your-project-name
 ├── app
 │   └── components
-│       └── foo-bar
-│           ├── baz
+│       └── foo
+│           ├── bar
 │           │   ├── index.hbs
 │           │   └── index.js
 │           ├── index.hbs
