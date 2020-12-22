@@ -20,10 +20,10 @@
     ]
   },
   "dependencies": {
+    "@kwsites/file-exists": "^1.1.1",
     "recursive-readdir": "^2.2.2"
   },
   "devDependencies": {
-    "@kwsites/file-exists": "^1.1.1",
     "ava": "^3.14.0",
     "prettier": "^2.2.1",
     "recursive-copy": "^2.0.11"
