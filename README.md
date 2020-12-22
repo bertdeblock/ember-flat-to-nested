@@ -5,11 +5,12 @@ Transforms a **flat colocated** component structure to a **nested colocated** co
 ## 👨‍💻 Usage
 
 ```shell
-npx github:Bagaar/ember-flat-to-nested --dir app/components
-npx github:Bagaar/ember-flat-to-nested --dir addon/components
+npx github:bertdeblock/ember-flat-to-nested
 ```
 
-### 💩 Before
+Works inside projects and addons.
+
+### Before
 
 ```
 your-project-name
@@ -23,7 +24,7 @@ your-project-name
 │   ...
 ```
 
-### 🥳 After
+### After
 
 ```
 your-project-name

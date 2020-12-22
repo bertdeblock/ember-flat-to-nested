@@ -1,31 +1,35 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const recursive = require('recursive-readdir')
-const { argv } = require('yargs')
+const fs = require('fs');
+const recursiveReadDir = require('recursive-readdir');
 
-const componentsDir = argv.dir
+const packageFile = fs.readFileSync('package.json');
+const packageJson = JSON.parse(packageFile);
 
-recursive(componentsDir, function (error, componentFiles) {
-  componentFiles.forEach(flatToNestedComponent)
-})
+const isAddon = Boolean(packageJson['ember-addon']);
+const componentsDir = isAddon ? 'addon/components' : 'app/components';
 
-function flatToNestedComponent (componentFile) {
-  if (isNestedComponent(componentFile)) {
-    return
+recursiveReadDir(componentsDir, function (error, componentFiles) {
+  if (error) {
+    console.log(error.message);
+  } else {
+    componentFiles.forEach(flatToNestedComponent);
   }
-  
-  const [
-    nestedComponentDir,
-    nestedComponentExt
-  ] = componentFile.split('.')
-  
-  const nestedComponentFile = `${nestedComponentDir}/index.${nestedComponentExt}`
-  
-  fs.mkdirSync(nestedComponentDir, { recursive: true })
-  fs.renameSync(componentFile, nestedComponentFile)
+});
+
+function flatToNestedComponent(componentFile) {
+  if (isNestedComponent(componentFile)) {
+    return;
+  }
+
+  const [nestedComponentDir, nestedComponentExt] = componentFile.split('.');
+
+  const nestedComponentFile = `${nestedComponentDir}/index.${nestedComponentExt}`;
+
+  fs.mkdirSync(nestedComponentDir, { recursive: true });
+  fs.renameSync(componentFile, nestedComponentFile);
 }
 
-function isNestedComponent (componentFile) {
-  return componentFile.includes('/index.')
+function isNestedComponent(componentFile) {
+  return componentFile.includes('/index.');
 }
