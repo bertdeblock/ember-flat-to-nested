@@ -3,7 +3,7 @@ const test = require('ava');
 const fs = require('fs');
 const path = require('path');
 const recursiveCopy = require('recursive-copy');
-const flatToNested = require('../lib/flat-to-nested');
+const flatToNested = require('../lib');
 
 test.beforeEach(cleanupOutput);
 
