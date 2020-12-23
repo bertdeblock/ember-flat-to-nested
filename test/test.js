@@ -1,3 +1,5 @@
+'use strict';
+
 const fileExists = require('@kwsites/file-exists');
 const test = require('ava');
 const fs = require('fs');
