@@ -5,7 +5,7 @@ const path = require('path');
 const recursiveCopy = require('recursive-copy');
 const flatToNested = require('../lib/flat-to-nested');
 
-test.afterEach(cleanupOutput);
+test.beforeEach(cleanupOutput);
 
 test.serial('it runs inside a project', async function (t) {
   await copyBlueprint('project');
