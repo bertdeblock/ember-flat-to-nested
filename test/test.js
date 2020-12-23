@@ -1,8 +1,7 @@
 'use strict';
 
-const fileExists = require('@kwsites/file-exists');
 const test = require('ava');
-const fs = require('fs');
+const fsExtra = require('fs-extra');
 const path = require('path');
 const recursiveCopy = require('recursive-copy');
 const flatToNested = require('../lib');
@@ -13,30 +12,30 @@ test.serial('it runs inside a project', async function (t) {
   await copyBlueprint('project');
   await flatToNested(outputPath());
 
-  t.false(outputFileExists('app/components/foo.js'));
-  t.false(outputFileExists('app/components/foo.hbs'));
-  t.false(outputFileExists('app/components/foo/bar.js'));
-  t.false(outputFileExists('app/components/foo/bar.hbs'));
+  t.false(await outputFileExists('app/components/foo.js'));
+  t.false(await outputFileExists('app/components/foo.hbs'));
+  t.false(await outputFileExists('app/components/foo/bar.js'));
+  t.false(await outputFileExists('app/components/foo/bar.hbs'));
 
-  t.true(outputFileExists('app/components/foo/index.js'));
-  t.true(outputFileExists('app/components/foo/index.hbs'));
-  t.true(outputFileExists('app/components/foo/bar/index.js'));
-  t.true(outputFileExists('app/components/foo/bar/index.hbs'));
+  t.true(await outputFileExists('app/components/foo/index.js'));
+  t.true(await outputFileExists('app/components/foo/index.hbs'));
+  t.true(await outputFileExists('app/components/foo/bar/index.js'));
+  t.true(await outputFileExists('app/components/foo/bar/index.hbs'));
 });
 
 test.serial('it runs inside an addon', async function (t) {
   await copyBlueprint('addon');
   await flatToNested(outputPath());
 
-  t.false(outputFileExists('addon/components/foo.js'));
-  t.false(outputFileExists('addon/components/foo.hbs'));
-  t.false(outputFileExists('addon/components/foo/bar.js'));
-  t.false(outputFileExists('addon/components/foo/bar.hbs'));
+  t.false(await outputFileExists('addon/components/foo.js'));
+  t.false(await outputFileExists('addon/components/foo.hbs'));
+  t.false(await outputFileExists('addon/components/foo/bar.js'));
+  t.false(await outputFileExists('addon/components/foo/bar.hbs'));
 
-  t.true(outputFileExists('addon/components/foo/index.js'));
-  t.true(outputFileExists('addon/components/foo/index.hbs'));
-  t.true(outputFileExists('addon/components/foo/bar/index.js'));
-  t.true(outputFileExists('addon/components/foo/bar/index.hbs'));
+  t.true(await outputFileExists('addon/components/foo/index.js'));
+  t.true(await outputFileExists('addon/components/foo/index.hbs'));
+  t.true(await outputFileExists('addon/components/foo/bar/index.js'));
+  t.true(await outputFileExists('addon/components/foo/bar/index.hbs'));
 });
 
 function copyBlueprint(blueprintName) {
@@ -44,11 +43,11 @@ function copyBlueprint(blueprintName) {
 }
 
 function outputFileExists(filePath) {
-  return fileExists.exists(outputPath(filePath), fileExists.FILE);
+  return fsExtra.pathExists(outputPath(filePath));
 }
 
 function cleanupOutput() {
-  fs.rmdirSync(outputPath(), { recursive: true });
+  return fsExtra.remove(outputPath());
 }
 
 function blueprintPath(blueprintName) {
