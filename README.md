@@ -1,5 +1,7 @@
 # Ember Flat to Nested
 
+[![CI](https://github.com/bertdeblock/ember-flat-to-nested/workflows/CI/badge.svg)](https://github.com/bertdeblock/ember-flat-to-nested/actions?query=workflow%3ACI)
+
 Transforms a **flat colocated** component structure to a **nested colocated** component structure.
 
 > **NOTE:** Use [ember-component-template-colocation-migrator](https://github.com/ember-codemods/ember-component-template-colocation-migrator) if you want to transform a **classic** component structure to a **flat or nested colocated** component structure.
