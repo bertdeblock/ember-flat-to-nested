@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "fs-extra": "^9.0.1",
-    "recursive-readdir": "^2.2.2"
+    "recursive-readdir": "^2.2.2",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
