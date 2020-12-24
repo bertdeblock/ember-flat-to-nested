@@ -5,18 +5,22 @@
 Transforms a **flat colocated** component structure to a **nested colocated** component structure.
 
 - Works for projects and addons
-- Already nested components are left untouched
+- Supports reverting to a flat colocated component structure
 
 > **NOTE:** Use [ember-component-template-colocation-migrator](https://github.com/ember-codemods/ember-component-template-colocation-migrator) if you want to transform a **classic** component structure to a **flat or nested colocated** component structure.
 
 ## 👨‍💻 Usage
+
+### Flat to Nested
 
 ```shell
 cd your/project-or-addon/path
 npx github:bertdeblock/ember-flat-to-nested
 ```
 
-### Before
+> **NOTE:** Components that are already nested, are left untouched.
+
+#### Before
 
 ```
 your-project-name
@@ -30,7 +34,7 @@ your-project-name
 │   ...
 ```
 
-### After
+#### After
 
 ```
 your-project-name
@@ -42,5 +46,43 @@ your-project-name
 │           │   └── index.js
 │           ├── index.hbs
 │           └── index.js
+│   ...
+```
+
+### Nested to Flat
+
+```shell
+cd your/project-or-addon/path
+npx github:bertdeblock/ember-flat-to-nested --revert
+```
+
+> **NOTE:** Components that are already flat, are left untouched.
+
+#### Before
+
+```
+your-project-name
+├── app
+│   └── components
+│       └── foo
+│           ├── bar
+│           │   ├── index.hbs
+│           │   └── index.js
+│           ├── index.hbs
+│           └── index.js
+│   ...
+```
+
+#### After
+
+```
+your-project-name
+├── app
+│   └── components
+│       ├── foo
+│       │   ├── bar.hbs
+│       │   └── bar.js
+│       ├── foo.hbs
+│       └── foo.js
 │   ...
 ```
