@@ -4,6 +4,9 @@
 
 Transforms a **flat colocated** component structure to a **nested colocated** component structure.
 
+- Works for projects and addons
+- Already nested components are left untouched
+
 > **NOTE:** Use [ember-component-template-colocation-migrator](https://github.com/ember-codemods/ember-component-template-colocation-migrator) if you want to transform a **classic** component structure to a **flat or nested colocated** component structure.
 
 ## 👨‍💻 Usage
