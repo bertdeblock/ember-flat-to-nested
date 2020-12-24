@@ -6,6 +6,7 @@ Transforms a **flat colocated** component structure to a **nested colocated** co
 
 - Works for projects and addons
 - Supports reverting to a flat colocated component structure
+- Ignores component files that already comply to the desired component structure
 
 > **NOTE:** Use [ember-component-template-colocation-migrator](https://github.com/ember-codemods/ember-component-template-colocation-migrator) if you want to transform a **classic** component structure to a **flat or nested colocated** component structure.
 
@@ -17,8 +18,6 @@ Transforms a **flat colocated** component structure to a **nested colocated** co
 cd your/project-or-addon/path
 npx github:bertdeblock/ember-flat-to-nested
 ```
-
-> **NOTE:** Components that are already nested, are left untouched.
 
 #### Before
 
@@ -55,8 +54,6 @@ your-project-name
 cd your/project-or-addon/path
 npx github:bertdeblock/ember-flat-to-nested --revert
 ```
-
-> **NOTE:** Components that are already flat, are left untouched.
 
 #### Before
 
