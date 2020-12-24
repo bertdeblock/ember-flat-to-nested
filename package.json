@@ -14,6 +14,7 @@
   "scripts": {
     "format": "prettier **/*.js --write",
     "lint": "eslint .",
+    "start": "ava --watch",
     "test": "ava"
   },
   "husky": {

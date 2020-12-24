@@ -21,6 +21,8 @@ test.serial('it runs inside a project', async function (t) {
   t.true(await outputFileExists('app/components/foo/index.hbs'));
   t.true(await outputFileExists('app/components/foo/bar/index.js'));
   t.true(await outputFileExists('app/components/foo/bar/index.hbs'));
+  t.true(await outputFileExists('app/components/baz/index.js'));
+  t.true(await outputFileExists('app/components/baz/index.hbs'));
 });
 
 test.serial('it runs inside an addon', async function (t) {
@@ -36,6 +38,8 @@ test.serial('it runs inside an addon', async function (t) {
   t.true(await outputFileExists('addon/components/foo/index.hbs'));
   t.true(await outputFileExists('addon/components/foo/bar/index.js'));
   t.true(await outputFileExists('addon/components/foo/bar/index.hbs'));
+  t.true(await outputFileExists('addon/components/baz/index.js'));
+  t.true(await outputFileExists('addon/components/baz/index.hbs'));
 });
 
 function copyBlueprint(blueprintName) {
