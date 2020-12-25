@@ -4,7 +4,7 @@
 
 Transforms a **flat colocated** component structure to a **nested colocated** component structure.
 
-- Works for projects and addons
+- Works for projects and addons (including in-repo addons)
 - Supports reverting to a flat colocated component structure
 - Ignores component files that already comply to the desired component structure
 
