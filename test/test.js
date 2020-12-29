@@ -14,15 +14,20 @@ test.serial('flat to nested inside a project', async function (t) {
 
   t.false(await outputFileExists('app/components/foo.js'));
   t.false(await outputFileExists('app/components/foo.hbs'));
+  t.false(await outputFileExists('app/components/foo.css'));
   t.false(await outputFileExists('app/components/foo/bar.js'));
   t.false(await outputFileExists('app/components/foo/bar.hbs'));
+  t.false(await outputFileExists('app/components/foo/bar.css'));
 
   t.true(await outputFileExists('app/components/foo/index.js'));
   t.true(await outputFileExists('app/components/foo/index.hbs'));
+  t.true(await outputFileExists('app/components/foo/index.css'));
   t.true(await outputFileExists('app/components/foo/bar/index.js'));
   t.true(await outputFileExists('app/components/foo/bar/index.hbs'));
+  t.true(await outputFileExists('app/components/foo/bar/index.css'));
   t.true(await outputFileExists('app/components/baz/index.js'));
   t.true(await outputFileExists('app/components/baz/index.hbs'));
+  t.true(await outputFileExists('app/components/baz/index.css'));
 });
 
 test.serial('nested to flat inside a project', async function (t) {
@@ -31,15 +36,20 @@ test.serial('nested to flat inside a project', async function (t) {
 
   t.true(await outputFileExists('app/components/foo.js'));
   t.true(await outputFileExists('app/components/foo.hbs'));
+  t.true(await outputFileExists('app/components/foo.css'));
   t.true(await outputFileExists('app/components/foo/bar.js'));
   t.true(await outputFileExists('app/components/foo/bar.hbs'));
+  t.true(await outputFileExists('app/components/foo/bar.css'));
   t.true(await outputFileExists('app/components/baz.js'));
   t.true(await outputFileExists('app/components/baz.hbs'));
+  t.true(await outputFileExists('app/components/baz.css'));
 
   t.false(await outputFileExists('app/components/foo/index.js'));
   t.false(await outputFileExists('app/components/foo/index.hbs'));
+  t.false(await outputFileExists('app/components/foo/index.css'));
   t.false(await outputFileExists('app/components/foo/bar/index.js'));
   t.false(await outputFileExists('app/components/foo/bar/index.hbs'));
+  t.false(await outputFileExists('app/components/foo/bar/index.css'));
 });
 
 test.serial('flat to nested inside an addon', async function (t) {
@@ -48,15 +58,20 @@ test.serial('flat to nested inside an addon', async function (t) {
 
   t.false(await outputFileExists('addon/components/foo.js'));
   t.false(await outputFileExists('addon/components/foo.hbs'));
+  t.false(await outputFileExists('addon/components/foo.css'));
   t.false(await outputFileExists('addon/components/foo/bar.js'));
   t.false(await outputFileExists('addon/components/foo/bar.hbs'));
+  t.false(await outputFileExists('addon/components/foo/bar.css'));
 
   t.true(await outputFileExists('addon/components/foo/index.js'));
   t.true(await outputFileExists('addon/components/foo/index.hbs'));
+  t.true(await outputFileExists('addon/components/foo/index.css'));
   t.true(await outputFileExists('addon/components/foo/bar/index.js'));
   t.true(await outputFileExists('addon/components/foo/bar/index.hbs'));
+  t.true(await outputFileExists('addon/components/foo/bar/index.css'));
   t.true(await outputFileExists('addon/components/baz/index.js'));
   t.true(await outputFileExists('addon/components/baz/index.hbs'));
+  t.true(await outputFileExists('addon/components/baz/index.css'));
 });
 
 test.serial('nested to flat inside an addon', async function (t) {
@@ -65,15 +80,20 @@ test.serial('nested to flat inside an addon', async function (t) {
 
   t.true(await outputFileExists('addon/components/foo.js'));
   t.true(await outputFileExists('addon/components/foo.hbs'));
+  t.true(await outputFileExists('addon/components/foo.css'));
   t.true(await outputFileExists('addon/components/foo/bar.js'));
   t.true(await outputFileExists('addon/components/foo/bar.hbs'));
+  t.true(await outputFileExists('addon/components/foo/bar.css'));
   t.true(await outputFileExists('addon/components/baz.js'));
   t.true(await outputFileExists('addon/components/baz.hbs'));
+  t.true(await outputFileExists('addon/components/baz.css'));
 
   t.false(await outputFileExists('addon/components/foo/index.js'));
   t.false(await outputFileExists('addon/components/foo/index.hbs'));
+  t.false(await outputFileExists('addon/components/foo/index.css'));
   t.false(await outputFileExists('addon/components/foo/bar/index.js'));
   t.false(await outputFileExists('addon/components/foo/bar/index.hbs'));
+  t.false(await outputFileExists('addon/components/foo/bar/index.css'));
 });
 
 function copyBlueprint(blueprintName) {
