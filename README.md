@@ -7,6 +7,7 @@ Transforms a **flat colocated** component structure to a **nested colocated** co
 - Works for projects and addons (including in-repo addons)
 - Supports reverting to a flat colocated component structure
 - Ignores component files that already comply to the desired component structure
+- Takes into account CSS module files (in case you are using [ember-css-modules](https://github.com/salsify/ember-css-modules))
 
 > **NOTE:** Use [ember-component-template-colocation-migrator](https://github.com/ember-codemods/ember-component-template-colocation-migrator) if you want to transform a **classic** component structure to a **flat or nested colocated** component structure.
 
