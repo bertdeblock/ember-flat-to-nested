@@ -6,8 +6,6 @@ const path = require('path');
 const recursiveCopy = require('recursive-copy');
 const flatToNested = require('../lib');
 
-test.beforeEach(cleanupOutput);
-
 test('flat to nested inside a project', async function (t) {
   await copyBlueprint('project-flat');
   await flatToNested(outputPath('project-flat'));
@@ -96,22 +94,23 @@ test('nested to flat inside an addon', async function (t) {
   t.false(await outputFileExists('addon-nested/addon/components/foo/bar/index.css'));
 });
 
-function copyBlueprint(blueprintName) {
-  return recursiveCopy(blueprintPath(blueprintName), outputPath(blueprintName));
+async function copyBlueprint(blueprintName) {
+  const blueprintPath = testPath('blueprints', blueprintName);
+  const blueprintOutputPath = outputPath(blueprintName);
+
+  await fsExtra.remove(blueprintOutputPath);
+
+  return recursiveCopy(blueprintPath, blueprintOutputPath);
 }
 
 function outputFileExists(filePath) {
   return fsExtra.pathExists(outputPath(filePath));
 }
 
-function cleanupOutput() {
-  return fsExtra.remove(outputPath());
+function outputPath() {
+  return testPath('output', ...arguments);
 }
 
-function blueprintPath(blueprintName) {
-  return path.join(__dirname, 'blueprints', blueprintName);
-}
-
-function outputPath(subPath = '') {
-  return path.join(__dirname, 'output', subPath);
+function testPath() {
+  return path.join(__dirname, ...arguments);
 }
