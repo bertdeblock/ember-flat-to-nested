@@ -2,6 +2,7 @@
 
 'use strict';
 
+const { cwd } = require('process');
 const { hideBin } = require('yargs/helpers');
 const yargs = require('yargs/yargs');
 const flatToNested = require('../lib');
@@ -16,4 +17,4 @@ const options = {
 
 const args = yargs(hideBin(process.argv)).options(options).argv;
 
-flatToNested(process.cwd(), args);
+flatToNested(cwd(), args);
