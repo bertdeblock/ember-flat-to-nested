@@ -53,5 +53,8 @@
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "recursive-copy": "^2.0.11"
+  },
+  "engines": {
+    "node": ">= 10"
   }
 }
