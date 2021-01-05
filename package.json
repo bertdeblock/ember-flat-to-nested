@@ -12,7 +12,7 @@
     "lib/"
   ],
   "scripts": {
-    "format": "prettier **/*.js --write",
+    "format": "prettier '**/*.js' --write",
     "lint": "eslint .",
     "start": "ava --watch",
     "test": "ava"
