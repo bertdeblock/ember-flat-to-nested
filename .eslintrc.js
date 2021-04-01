@@ -11,4 +11,7 @@ module.exports = {
   },
   plugins: ['node', 'prettier'],
   root: true,
+  rules: {
+    strict: 'error',
+  },
 };

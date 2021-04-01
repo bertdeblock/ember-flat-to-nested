@@ -1,3 +1,5 @@
+'use strict';
+
 const fsExtra = require('fs-extra');
 const path = require('path');
 const recursiveCopy = require('recursive-copy');
