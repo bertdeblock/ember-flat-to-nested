@@ -13,7 +13,7 @@ export async function copyBlueprint(blueprintName) {
 }
 
 export function testFileExists(filePath) {
-  return fsExtra.pathExists(testPath("output", filePath));
+  return fsExtra.pathExistsSync(testPath("output", filePath));
 }
 
 export function testPath() {
