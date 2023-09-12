@@ -7,7 +7,16 @@ on:
     branches: main
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint
+
   test:
+    needs: lint
     runs-on: ${{matrix.os}}
 
     strategy:
