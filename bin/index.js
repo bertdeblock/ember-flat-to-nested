@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { cwd } from "process";
+import { cwd } from "node:process";
 import { hideBin } from "yargs/helpers";
 import yargs from "yargs/yargs";
 import { flatToNested } from "../lib/index.js";
