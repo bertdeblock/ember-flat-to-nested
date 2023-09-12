@@ -1,9 +1,3 @@
-# dependencies
 /node_modules/
-
-# misc
-/.eslintcache
-/yarn-error.log
-
-# test
 /test/output/
+/.eslintcache
