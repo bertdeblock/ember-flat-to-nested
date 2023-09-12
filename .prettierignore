@@ -1,9 +1,2 @@
-# dependencies
-/node_modules/
-
-# misc
-!.*
-.eslintcache
-
-# test
 /test/output/
+/pnpm-lock.yaml

@@ -5,6 +5,7 @@
   "repository": "https://github.com/bertdeblock/ember-flat-to-nested",
   "license": "MIT",
   "author": "Bert De Block",
+  "type": "module",
   "main": "lib/index.js",
   "bin": "bin/index.js",
   "files": [
@@ -12,20 +13,14 @@
     "lib/"
   ],
   "scripts": {
-    "lint": "eslint . --cache",
-    "lint:fix": "eslint . --fix",
+    "lint": "concurrently --group --prefix-colors auto \"npm:lint:*(!fix)\"",
+    "lint:fix": "concurrently --group --prefix-colors auto \"npm:lint:*:fix\"",
+    "lint:format": "prettier . --cache --check",
+    "lint:format:fix": "prettier . --cache --write",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
     "start": "ava --watch",
     "test": "ava"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
   },
   "ava": {
     "files": [
@@ -36,24 +31,24 @@
     ]
   },
   "dependencies": {
-    "chalk": "^4.1.0",
-    "fs-extra": "^9.1.0",
-    "recursive-readdir": "^2.2.2",
-    "yargs": "^16.2.0"
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.1.1",
+    "recursive-readdir": "^2.2.3",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "ava": "^3.15.0",
-    "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "husky": "^4.3.8",
-    "prettier": "^2.2.1",
-    "recursive-copy": "^2.0.11"
+    "ava": "^5.3.1",
+    "concurrently": "^8.2.1",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-n": "^16.1.0",
+    "prettier": "^3.0.3",
+    "recursive-copy": "^2.0.14"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 18"
+  },
+  "volta": {
+    "node": "18.17.1"
   }
 }

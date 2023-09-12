@@ -1,17 +1,15 @@
 #!/usr/bin/env node
 
-'use strict';
-
-const { cwd } = require('process');
-const { hideBin } = require('yargs/helpers');
-const yargs = require('yargs/yargs');
-const flatToNested = require('../lib');
+import { cwd } from "node:process";
+import { hideBin } from "yargs/helpers";
+import yargs from "yargs/yargs";
+import { flatToNested } from "../lib/index.js";
 
 const options = {
   revert: {
     default: false,
-    description: 'Revert to a flat colocated component structure',
-    type: 'boolean',
+    description: "Revert to a flat colocated component structure",
+    type: "boolean",
   },
 };
 
