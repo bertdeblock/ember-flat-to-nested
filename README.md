@@ -4,7 +4,7 @@
 
 Transforms a **flat colocated** component structure to a **nested colocated** component structure.
 
-- Works for projects and addons (v1, v2 and in-repo addons)
+- Works for apps and addons (v1, v2 and in-repo addons)
 - Supports reverting to a flat colocated component structure
 - Ignores component files that already comply to the desired component structure
 - Takes into account CSS module files (in case you are using [ember-css-modules](https://github.com/salsify/ember-css-modules))
@@ -20,14 +20,14 @@ Transforms a **flat colocated** component structure to a **nested colocated** co
 ### Flat to Nested
 
 ```shell
-cd your/project-or-addon/path
+cd your/app-or-addon/path
 npx github:bertdeblock/ember-flat-to-nested
 ```
 
 #### Before
 
 ```
-your-project-name
+your-app-name
 ├── app
 │   └── components
 │       ├── foo
@@ -41,7 +41,7 @@ your-project-name
 #### After
 
 ```
-your-project-name
+your-app-name
 ├── app
 │   └── components
 │       └── foo
@@ -56,14 +56,14 @@ your-project-name
 ### Nested to Flat
 
 ```shell
-cd your/project-or-addon/path
+cd your/app-or-addon/path
 npx github:bertdeblock/ember-flat-to-nested --revert
 ```
 
 #### Before
 
 ```
-your-project-name
+your-app-name
 ├── app
 │   └── components
 │       └── foo
@@ -78,7 +78,7 @@ your-project-name
 #### After
 
 ```
-your-project-name
+your-app-name
 ├── app
 │   └── components
 │       ├── foo

@@ -2,54 +2,48 @@ import test from "ava";
 import { flatToNested } from "../lib/index.js";
 import { copyBlueprint, testFileExists, testPath } from "./helpers.js";
 
-test("flat to nested inside a project", async function (t) {
-  await copyBlueprint("project-flat");
-  await flatToNested(testPath("output/project-flat"));
+test("flat to nested inside an app", async function (t) {
+  await copyBlueprint("app-flat");
+  await flatToNested(testPath("output/app-flat"));
 
-  t.false(await testFileExists("project-flat/app/components/foo.css"));
-  t.false(await testFileExists("project-flat/app/components/foo.hbs"));
-  t.false(await testFileExists("project-flat/app/components/foo.js"));
-  t.false(await testFileExists("project-flat/app/components/foo/bar.css"));
-  t.false(await testFileExists("project-flat/app/components/foo/bar.hbs"));
-  t.false(await testFileExists("project-flat/app/components/foo/bar.js"));
+  t.false(await testFileExists("app-flat/app/components/foo.css"));
+  t.false(await testFileExists("app-flat/app/components/foo.hbs"));
+  t.false(await testFileExists("app-flat/app/components/foo.js"));
+  t.false(await testFileExists("app-flat/app/components/foo/bar.css"));
+  t.false(await testFileExists("app-flat/app/components/foo/bar.hbs"));
+  t.false(await testFileExists("app-flat/app/components/foo/bar.js"));
 
-  t.true(await testFileExists("project-flat/app/components/foo/index.css"));
-  t.true(await testFileExists("project-flat/app/components/foo/index.hbs"));
-  t.true(await testFileExists("project-flat/app/components/foo/index.js"));
-  t.true(await testFileExists("project-flat/app/components/foo/bar/index.css"));
-  t.true(await testFileExists("project-flat/app/components/foo/bar/index.hbs"));
-  t.true(await testFileExists("project-flat/app/components/foo/bar/index.js"));
-  t.true(await testFileExists("project-flat/app/components/baz/index.css"));
-  t.true(await testFileExists("project-flat/app/components/baz/index.hbs"));
-  t.true(await testFileExists("project-flat/app/components/baz/index.js"));
+  t.true(await testFileExists("app-flat/app/components/foo/index.css"));
+  t.true(await testFileExists("app-flat/app/components/foo/index.hbs"));
+  t.true(await testFileExists("app-flat/app/components/foo/index.js"));
+  t.true(await testFileExists("app-flat/app/components/foo/bar/index.css"));
+  t.true(await testFileExists("app-flat/app/components/foo/bar/index.hbs"));
+  t.true(await testFileExists("app-flat/app/components/foo/bar/index.js"));
+  t.true(await testFileExists("app-flat/app/components/baz/index.css"));
+  t.true(await testFileExists("app-flat/app/components/baz/index.hbs"));
+  t.true(await testFileExists("app-flat/app/components/baz/index.js"));
 });
 
-test("nested to flat inside a project", async function (t) {
-  await copyBlueprint("project-nested");
-  await flatToNested(testPath("output/project-nested"), { revert: true });
+test("nested to flat inside an app", async function (t) {
+  await copyBlueprint("app-nested");
+  await flatToNested(testPath("output/app-nested"), { revert: true });
 
-  t.true(await testFileExists("project-nested/app/components/foo.css"));
-  t.true(await testFileExists("project-nested/app/components/foo.hbs"));
-  t.true(await testFileExists("project-nested/app/components/foo.js"));
-  t.true(await testFileExists("project-nested/app/components/foo/bar.css"));
-  t.true(await testFileExists("project-nested/app/components/foo/bar.hbs"));
-  t.true(await testFileExists("project-nested/app/components/foo/bar.js"));
-  t.true(await testFileExists("project-nested/app/components/baz.css"));
-  t.true(await testFileExists("project-nested/app/components/baz.hbs"));
-  t.true(await testFileExists("project-nested/app/components/baz.js"));
+  t.true(await testFileExists("app-nested/app/components/foo.css"));
+  t.true(await testFileExists("app-nested/app/components/foo.hbs"));
+  t.true(await testFileExists("app-nested/app/components/foo.js"));
+  t.true(await testFileExists("app-nested/app/components/foo/bar.css"));
+  t.true(await testFileExists("app-nested/app/components/foo/bar.hbs"));
+  t.true(await testFileExists("app-nested/app/components/foo/bar.js"));
+  t.true(await testFileExists("app-nested/app/components/baz.css"));
+  t.true(await testFileExists("app-nested/app/components/baz.hbs"));
+  t.true(await testFileExists("app-nested/app/components/baz.js"));
 
-  t.false(await testFileExists("project-nested/app/components/foo/index.css"));
-  t.false(await testFileExists("project-nested/app/components/foo/index.hbs"));
-  t.false(await testFileExists("project-nested/app/components/foo/index.js"));
-  t.false(
-    await testFileExists("project-nested/app/components/foo/bar/index.css"),
-  );
-  t.false(
-    await testFileExists("project-nested/app/components/foo/bar/index.hbs"),
-  );
-  t.false(
-    await testFileExists("project-nested/app/components/foo/bar/index.js"),
-  );
+  t.false(await testFileExists("app-nested/app/components/foo/index.css"));
+  t.false(await testFileExists("app-nested/app/components/foo/index.hbs"));
+  t.false(await testFileExists("app-nested/app/components/foo/index.js"));
+  t.false(await testFileExists("app-nested/app/components/foo/bar/index.css"));
+  t.false(await testFileExists("app-nested/app/components/foo/bar/index.hbs"));
+  t.false(await testFileExists("app-nested/app/components/foo/bar/index.js"));
 });
 
 test("flat to nested inside a v1 addon", async function (t) {
