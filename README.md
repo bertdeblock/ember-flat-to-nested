@@ -1,8 +1,6 @@
 # Ember Flat to Nested
 
 [![CI](https://github.com/bertdeblock/ember-flat-to-nested/workflows/CI/badge.svg)](https://github.com/bertdeblock/ember-flat-to-nested/actions?query=workflow%3ACI)
-[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 Transforms a **flat colocated** component structure to a **nested colocated** component structure.
 
