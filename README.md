@@ -13,6 +13,10 @@ Transforms a **flat colocated** component structure to a **nested colocated** co
 
 > **NOTE:** Use [ember-component-template-colocation-migrator](https://github.com/ember-codemods/ember-component-template-colocation-migrator) if you want to transform a **classic** component structure to a **flat or nested colocated** component structure.
 
+## ✅ Compatibility
+
+- Node.js v18 or above
+
 ## 👨‍💻 Usage
 
 ### Flat to Nested

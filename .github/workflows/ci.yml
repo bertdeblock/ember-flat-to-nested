@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [main]
+    branches: main
   push:
-    branches: [main]
+    branches: main
 
 jobs:
   test:
@@ -15,11 +15,10 @@ jobs:
         node-version: [18, 20]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js v${{matrix.node-version}}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{matrix.node-version}}
-    - run: yarn install --frozen-lockfile
-    - run: yarn lint
-    - run: yarn test
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint
+      - run: yarn test
