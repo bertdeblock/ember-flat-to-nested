@@ -4,7 +4,7 @@
 
 Transforms a **flat colocated** component structure to a **nested colocated** component structure.
 
-- Works for projects and addons (including in-repo addons)
+- Works for projects and addons (v1, v2 and in-repo addons)
 - Supports reverting to a flat colocated component structure
 - Ignores component files that already comply to the desired component structure
 - Takes into account CSS module files (in case you are using [ember-css-modules](https://github.com/salsify/ember-css-modules))
