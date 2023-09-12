@@ -10,12 +10,8 @@ module.exports = {
     "plugin:prettier/recommended",
   ],
   parserOptions: {
-    ecmaVersion: 2019,
-    sourceType: "script",
+    ecmaVersion: "latest",
   },
   plugins: ["prettier"],
   root: true,
-  rules: {
-    strict: "error",
-  },
 };

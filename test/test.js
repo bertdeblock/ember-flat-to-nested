@@ -1,8 +1,6 @@
-"use strict";
-
-const test = require("ava");
-const flatToNested = require("../lib");
-const { copyBlueprint, testFileExists, testPath } = require("./helpers");
+import test from "ava";
+import { flatToNested } from "../lib/index.js";
+import { copyBlueprint, testFileExists, testPath } from "./helpers.js";
 
 test("flat to nested inside a project", async function (t) {
   await copyBlueprint("project-flat");

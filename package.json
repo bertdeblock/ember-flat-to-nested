@@ -5,6 +5,7 @@
   "repository": "https://github.com/bertdeblock/ember-flat-to-nested",
   "license": "MIT",
   "author": "Bert De Block",
+  "type": "module",
   "main": "lib/index.js",
   "bin": "bin/index.js",
   "files": [
@@ -26,10 +27,10 @@
     ]
   },
   "dependencies": {
-    "chalk": "^4.1.0",
+    "chalk": "^5.3.0",
     "fs-extra": "^11.1.1",
     "recursive-readdir": "^2.2.3",
-    "yargs": "^16.2.0"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "ava": "^5.3.1",
